@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="trial.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="logo.PNG" alt="Your Logo">
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle">
+                ☰
+            </button>
+    
+            <div class="nav-links" id="nav-links">
+                <a href="trial.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="about us.jpeg">About Us</a>
+                <a href="contact us.jpeg">Contact</a>
+                <a class="signup-btn">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+<div id="container">
+    <div id="result">
+        <div id="textarea"></div>
+        <!-- <img id="displayImage" src="" alt="Uploaded Image" style="max-width: 200px; float: right; margin-left: 20px;"> -->
+        
+        <div id="photo-space">
+            <img id="photo-space" src="" alt="Uploaded Photo">
+    </div>
+    </div>
+    <script>
+        const name=sessionStorage.getItem('name');
+        const age=sessionStorage.getItem('age');
+        const dob=sessionStorage.getItem('dob');
+        const father=sessionStorage.getItem('father');
+        const mother=sessionStorage.getItem('mother');
+        const edu=sessionStorage.getItem('edu');
+        const skill=sessionStorage.getItem('skill');
+        const achievements=sessionStorage.getItem('achievements');
+        const records=sessionStorage.getItem('record');
+        const add=sessionStorage.getItem('add');
+        const profession=sessionStorage.getItem('profession');
+        const awards=sessionStorage.getItem('awards');
+        const hobbies=sessionStorage.getItem('hobbies');
+        const intr=sessionStorage.getItem('intr');
+
+        const photoUrl = sessionStorage.getItem('photo');
+
+
+        
+
+        const biodata = `   ${name}, born on ${dob} in ${add}, is widely regarded as one of the great ${profession}s of all time. He is the son of ${father} and ${mother}. He made history with numerous achievements, such as ${achievements}.
+${name} has won prestigious awards including ${awards}. Throughout his career, he achieved countless individual awards, broke numerous records, and ${records}.
+${name}'s legacy is not only built on his unparalleled skill but also on his humble nature off the field, making him an inspiration to millions worldwide.
+Beyond ${profession}, ${name} is known for his love of family, which plays a central role in his life. He enjoys spending time with ${intr}.
+${name} also has a passion for ${hobbies}, and is a dedicated philanthropist, running the ${name} Foundation, which focuses on supporting children’s health and education.`;
+
+
+document.getElementById("textarea").textContent = biodata;
+
+if (photoUrl) {
+    console.log(photoUrl);
+    document.getElementById("photo-space").src = photoUrl; 
+}
+
+    </script>
+</div>
+</div>
+</body>
+</html>
