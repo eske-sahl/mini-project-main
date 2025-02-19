@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h2>Upload an Image</h2>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="submitImage()">Submit</button>
+
+    <script>
+        function submitImage() {
+            const input = document.getElementById("imageInput");
+            if (input.files.length > 0) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    sessionStorage.setItem("uploadedImage", e.target.result);
+                    window.location.href = "display.html"; // Redirect to next page
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                alert("Please select an image first!");
+            }
+        }
+    </script>
+</body>
+</html>

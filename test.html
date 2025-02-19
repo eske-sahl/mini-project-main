@@ -32,7 +32,6 @@
         <!-- <img id="displayImage" src="" alt="Uploaded Image" style="max-width: 200px; float: right; margin-left: 20px;"> -->
         
         <div id="photo-space">
-            <img id="photo-space" src="" alt="Uploaded Photo">
     </div>
     </div>
     <script>
@@ -51,7 +50,15 @@
         const hobbies=sessionStorage.getItem('hobbies');
         const intr=sessionStorage.getItem('intr');
 
-        const photoUrl = sessionStorage.getItem('photo');
+        const imageData = sessionStorage.getItem("photo");
+            if (imageData) {
+                const img = document.createElement("img");
+                img.src = imageData;
+                img.style.maxWidth = "100%";;
+                document.getElementById("photo-space").appendChild(img);
+            } else {
+                document.getElementById("photo-space").innerHTML = "<p>No image found. Please upload again.</p>";
+            }
 
 
         
@@ -65,10 +72,7 @@ ${name} also has a passion for ${hobbies}, and is a dedicated philanthropist, ru
 
 document.getElementById("textarea").textContent = biodata;
 
-if (photoUrl) {
-    console.log(photoUrl);
-    document.getElementById("photo-space").src = photoUrl; 
-}
+
 
     </script>
 </div>

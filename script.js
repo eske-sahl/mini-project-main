@@ -13,7 +13,6 @@ function generateBioData() {
     const awards = document.getElementById("fawards").value;
     const hobbies = document.getElementById("fhob").value;
     const intr = document.getElementById("fintr").value;
-    const photoInput = document.getElementById('fphoto');
 
     // Store all values in sessionStorage
     sessionStorage.setItem('name', name);
@@ -31,18 +30,17 @@ function generateBioData() {
     sessionStorage.setItem('hobbies', hobbies);
     sessionStorage.setItem('intr', intr);
 
-    if (photoInput.files.length > 0) {
-        const photoFile = photoInput.files[0];
-        const reader = new FileReader();
-    
-        reader.onload = function (e) {
-            sessionStorage.setItem('photo', e.target.result); // Store as Base64
-        };
-    
-        reader.readAsDataURL(photoFile);
-    }
-    
-
+    const input = document.getElementById("fphoto");
+            if (input.files.length > 0) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    sessionStorage.setItem("photo", e.target.result);
+                    window.location.href = "test.html"; // Redirect to next page
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                alert("Please select an image first!");
+            }
     // Redirect to test.html (if needed)
     window.location.href = "test.html";
 }

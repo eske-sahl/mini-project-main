@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image</title>
+</head>
+<body>
+    <h2>Uploaded Image</h2>
+    <div id="imageContainer"></div>
+    <a href="index.html">Upload Another Image</a>
+
+    <script>
+        window.onload = function () {
+            const imageData = sessionStorage.getItem("uploadedImage");
+            if (imageData) {
+                const img = document.createElement("img");
+                img.id = ""
+                img.src = imageData;
+                img.style.maxWidth = "100%";
+                document.getElementById("imageContainer").appendChild(img);
+            } else {
+                document.getElementById("imageContainer").innerHTML = "<p>No image found. Please upload again.</p>";
+            }
+        };
+    </script>
+</body>
+</html>
