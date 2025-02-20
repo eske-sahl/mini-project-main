@@ -1,0 +1,234 @@
+:root {
+    /* Replace these with your chosen color scheme */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #1abc9c;
+    --text-color: #2c3e50;
+    --background-start: #f5f7fa;
+    --background-end: #e4e8f0;
+    --form-background: #ffffff;
+}
+/* Paper-style CV Container Styles */
+#cv-container {
+    max-width: 850px;
+    margin: 50px auto;
+    background-color: var(--form-background);
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.1);
+    border: 1px solid var(--background-end);
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    position: relative;
+    color: var(--text-color);
+    margin-left: 20%;
+    margin-right: 20%;
+    display: flex;
+    flex-direction: column;
+}
+#top-bar{
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+    max-height: 5rem;
+}
+#photo-section{
+    margin-left: 3rem;
+    max-height: 5rem;
+}
+#cv-main{
+    display: flex;
+    flex-direction: row;
+}
+#side1{
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    background-color: #1abc9c;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+#side2{
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    padding-right: 3REM;
+    /* padding-right: 0%;
+    max-width: 100%; */
+    background-color: #f5f7fa;
+    width: 100%;
+}
+/* Paper texture overlay */
+#cv-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.cv-heading {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.cv-section {
+    margin-bottom: 30px;
+    position: relative;
+    page-break-inside: avoid;
+}
+
+.cv-section h3 {
+    color: var(--primary-color);
+    font-size: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--background-end);
+    margin-bottom: 20px;
+    font-weight: 600;
+    position: relative;
+}
+
+.cv-section h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.cv-item {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cv-year {
+    min-width: 120px;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 0.7;
+    position: relative;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.cv-year::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: -5px;
+    height: 100%;
+    border-right: 2px solid var(--background-end);
+}
+
+.cv-content {
+    flex: 1;
+    padding-left: 25px;
+    position: relative;
+}
+
+.cv-content::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    z-index: 1;
+}
+
+.cv-content h4 {
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.skills-list, .achievements-list, .awards-list {
+    padding-left: 5px;
+    margin-top: 10px;
+    list-style-type: none;
+}
+
+.skills-list li, .achievements-list li, .awards-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skills-list li::before, .achievements-list li::before, .awards-list li::before {
+    content: "•";
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.contact-info {
+    background-color: var(--background-start);
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 4px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--accent-color);
+}
+
+.contact-info p {
+    margin: 8px 0;
+    color: var(--text-color);
+}
+
+@media print {
+    #cv-container {
+        box-shadow: none;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    body {
+        background: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #cv-container {
+        padding: 25px;
+        margin: 20px auto;
+    }
+    
+    .cv-item {
+        flex-direction: column;
+    }
+    
+    .cv-year {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed var(--background-end);
+    }
+    
+    .cv-year::after {
+        display: none;
+    }
+    
+    .cv-content {
+        padding-left: 0;
+    }
+    
+    .cv-content::before {
+        display: none;
+    }
+}

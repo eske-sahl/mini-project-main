@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="trial.css">
+    <link rel="stylesheet" href="cv.css">
 </head>
 <body>
     <nav class="navbar">
@@ -34,6 +35,73 @@
         <div id="photo-space">
     </div>
     </div>
+</div>
+<h2 class="cv-heading">Curriculum Vitae</h2>
+<div id="cv-container">
+    <div id="top-bar"> HELLO
+        <div id="photo-section"></div>
+        <div id=""></div>
+    </div>
+    <div id="cv-main">
+        <div id="side1">
+            <div class="cv-section">
+                <h3>Education</h3>
+                <div class="cv-item">
+                    <span class="cv-year">2015-2019</span>
+                    <div class="cv-content">
+                        <h4>Bachelor's Degree</h4>
+                        <p id="education-details"></p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="cv-section">
+                <h3>Professional Experience</h3>
+                <div class="cv-item">
+                    <span class="cv-year">2019-Present</span>
+                    <div class="cv-content">
+                        <h4 id="profession-title"></h4>
+                        <p id="profession-details"></p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="cv-section">
+                <h3>Contact Information</h3>
+                <div class="contact-info">
+                    <p><strong>Address:</strong> <span id="address-details"></span></p>
+                    <p><strong>Email:</strong> contact@example.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                </div>
+            </div>
+        </div>
+        <div id="side2">
+            <div class="cv-section">
+                <h3>Achievements</h3>
+                <ul id="achievements-list" class="achievements-list"></ul>
+            </div>
+
+            
+            <div class="cv-section">
+                <h3>Skills</h3>
+                <ul id="skills-list" class="skills-list"></ul>
+            </div>
+
+    
+            <div class="cv-section">
+                <h3>Awards</h3>
+                <ul id="awards-list" class="awards-list"></ul>
+            </div>
+    
+            <div class="cv-section">
+                <h3>Interests</h3>
+                <p id="interests-details"></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
     <script>
         const name=sessionStorage.getItem('name');
         const age=sessionStorage.getItem('age');
@@ -55,9 +123,12 @@
                 const img = document.createElement("img");
                 img.src = imageData;
                 img.style.maxWidth = "100%";;
+                document.getElementById("photo-section").appendChild(img);
                 document.getElementById("photo-space").appendChild(img);
+                
             } else {
                 document.getElementById("photo-space").innerHTML = "<p>No image found. Please upload again.</p>";
+                document.getElementById("photo-section").innerHTML = "<p>No image found. Please upload again.</p>";
             }
 
 
@@ -75,7 +146,5 @@ document.getElementById("textarea").textContent = biodata;
 
 
     </script>
-</div>
-</div>
 </body>
 </html>
